@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FullPoliceApp</string>
+    <string name="inicioSesion">Iniciar Sesion</string>
+    <string name="registrarme">Registrarme</string>
 </resources>
