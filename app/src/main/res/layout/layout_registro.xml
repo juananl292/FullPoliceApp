@@ -19,13 +19,13 @@
             app:srcCompat="@drawable/full" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout4"
+            android:id="@+id/nombreText"
             style="@style/camposTextos"
             android:layout_width="338dp"
             android:layout_height="56dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
+            app:layout_constraintBottom_toTopOf="@+id/correoText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nombre"
                 android:layout_width="338dp"
                 android:layout_height="wrap_content"
                 android:background="@color/purple_500"
@@ -47,18 +48,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout5"
+            android:id="@+id/correoText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/usuario"
             app:endIconMode="custom"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout6"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+            app:layout_constraintEnd_toEndOf="@+id/nombreText"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+            app:layout_constraintStart_toStartOf="@+id/nombreText"
+            app:layout_constraintTop_toBottomOf="@+id/nombreText">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/correo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/purple_500"
@@ -71,24 +73,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:endIconMode="password_toggle"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+            app:layout_constraintBottom_toTopOf="@+id/botonRegistrarme"
+            app:layout_constraintEnd_toEndOf="@+id/correoText"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+            app:layout_constraintStart_toStartOf="@+id/correoText"
+            app:layout_constraintTop_toBottomOf="@+id/correoText">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contrasenaText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/purple_500"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:textColor="@color/naranja"
-                />
+                android:textColor="@color/naranja" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/botonRegistrarme"
             style="@style/camposTextos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
