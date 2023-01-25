@@ -2,4 +2,6 @@
     <string name="app_name">FullPoliceApp</string>
     <string name="inicioSesion">Iniciar Sesion</string>
     <string name="registrarme">Registrarme</string>
+    <string name="correo">Correo</string>
+    <string name="contrasena">Contraseña</string>
 </resources>
