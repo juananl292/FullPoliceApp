@@ -1,10 +1,13 @@
 package com.fullpoliceapp
 
+import android.content.Intent
 import  androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.auth.FirebaseAuth
 
 class Registro : AppCompatActivity() {
     val botonRegistrar: Button by lazy { findViewById<Button>(R.id.botonRegistrar) }
@@ -23,9 +26,31 @@ class Registro : AppCompatActivity() {
     private fun setup(){
         title="Autentication"
         botonRegistrar.setOnClickListener {
-            if(correo.getText().isNotEmpty()  && password.text.isNotEmpty()  ){
 
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo.text.toString(),
+                password.text.toString()).addOnCompleteListener {
+                    if(it.isSuccessful){
+                        showHome(it.result?.user?.email?:"",password.text.toString())
+                    }else{
+                        showAlert()
+                    }
             }
+
         }
+    }
+    private fun showAlert(){
+        val builder=AlertDialog.Builder(this)
+        builder.setTitle("error")
+        builder.setMessage("se ha producido un error al autenticar el usuario")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog:AlertDialog= builder.create()
+        dialog.show()
+    }
+    private fun showHome(email:String, contra:String){
+        val homeIntent:Intent=Intent(this,MenuMain::class.java).apply {this
+            putExtra("email",correo.text.toString())
+            putExtra("contra",password.text.toString())
+        }
+        startActivity(homeIntent)
     }
 }
