@@ -10,7 +10,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 
 class Registro : AppCompatActivity() {
-    val botonRegistrar: Button by lazy { findViewById<Button>(R.id.botonRegistrar) }
+    val botonRegistra: Button by lazy { findViewById<Button>(R.id.botonRegis) }
     val correo: TextInputEditText by lazy { findViewById<TextInputEditText>(R.id.correo) }
     val password:TextInputEditText by lazy { findViewById<TextInputEditText>(R.id.contrasenaText) }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,23 +21,22 @@ class Registro : AppCompatActivity() {
         val bundle=Bundle()
         bundle.putString("message","Integracion de firebase completa")
         analytics.logEvent("Initscreen",bundle)
-        setup()
-    }
-    private fun setup(){
-        title="Autentication"
-        botonRegistrar.setOnClickListener {
+
+        botonRegistra.setOnClickListener {
 
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo.text.toString(),
                 password.text.toString()).addOnCompleteListener {
-                    if(it.isSuccessful){
-                        showHome(it.result?.user?.email?:"",password.text.toString())
-                    }else{
-                        showAlert()
-                    }
+                if(it.isSuccessful){
+                    showHome(it.result?.user?.email?:"",password.text.toString())
+                }else{
+                    showAlert()
+                }
             }
 
         }
+
     }
+
     private fun showAlert(){
         val builder=AlertDialog.Builder(this)
         builder.setTitle("error")
