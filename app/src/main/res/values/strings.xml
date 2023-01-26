@@ -4,4 +4,11 @@
     <string name="registrarme">Registrarme</string>
     <string name="correo">Correo</string>
     <string name="contrasena">Contraseña</string>
+    <string name="ranking">Ranking</string>
+    <string name="test">Test</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="ortografia">Ortografia</string>
+    <string name="noticias">Noticias</string>
+    <string name="temario">Temario</string>
+    <string name="bienvenido">Bienvenido</string>
 </resources>
