@@ -8,9 +8,12 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Registro : AppCompatActivity() {
+    private val db=FirebaseFirestore.getInstance()
     val botonRegistra: Button by lazy { findViewById<Button>(R.id.botonRegis) }
+    val name:TextInputEditText by lazy { findViewById(R.id.nombre) }
     val correo: TextInputEditText by lazy { findViewById<TextInputEditText>(R.id.correo) }
     val password:TextInputEditText by lazy { findViewById<TextInputEditText>(R.id.contrasenaText) }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +30,10 @@ class Registro : AppCompatActivity() {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo.text.toString(),
                 password.text.toString()).addOnCompleteListener {
                 if(it.isSuccessful){
+                    db.collection("users").document(correo.text.toString()).set(
+                        hashMapOf("email" to correo.text.toString(),
+                        "name" to name.text.toString())
+                    )
                     showHome(it.result?.user?.email?:"",password.text.toString())
                 }else{
                     showAlert()
