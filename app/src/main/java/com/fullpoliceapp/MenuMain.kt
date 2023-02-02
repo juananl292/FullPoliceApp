@@ -45,7 +45,7 @@ class MenuMain : AppCompatActivity() {
             startActivity(homeIntent)
         }
         botonTemario.setOnClickListener {
-            val homeIntent: Intent = Intent(this,Temario::class.java)
+            val homeIntent: Intent = Intent(this,MenuTemario::class.java)
             startActivity(homeIntent)
         }
         botonTest.setOnClickListener {
