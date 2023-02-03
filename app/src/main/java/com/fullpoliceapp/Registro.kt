@@ -1,9 +1,15 @@
 package com.fullpoliceapp
 
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
+import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import  androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -24,6 +30,7 @@ class Registro : AppCompatActivity() {
         val bundle=Bundle()
         bundle.putString("message","Integracion de firebase completa")
         analytics.logEvent("Initscreen",bundle)
+
 
         botonRegistra.setOnClickListener {
 
@@ -59,4 +66,5 @@ class Registro : AppCompatActivity() {
         }
         startActivity(homeIntent)
     }
+
 }
