@@ -29,6 +29,7 @@ class Noticias : AppCompatActivity() {
                 }
                 ActivityCompat.requestPermissions(this, Array<String>(1) { android.Manifest.permission.CAMERA },
                     this.PERMISO_CAMARA
+                    //probando
                 )
             }
         }
